@@ -1,0 +1,29 @@
+1. Import required libraries: express, body-parser, mongoose, and nanoid.
+
+2. Create an Express app instance and set the port to 3000.
+
+3. Connect to the MongoDB database using mongoose, using the provided mongoUrl.
+
+4. Define a MongoDB schema for the URL with fields shortUrl, destinationUrl, and createdAt.
+
+5. Create a model named Url based on the defined schema.
+
+6. Set up body-parser middleware to handle URL encoded form data.
+
+7. Create a function generateShortUrl that generates a random short URL using nanoid(8).
+
+8. Define a route for the root URL ("/") to serve the index.html file.
+
+9. Define a route to handle the POST request to "/shorten":
+   - Extract the destination URL from the request body.
+   - Generate a short URL using generateShortUrl().
+   - Create a new URL document in the database with the short URL and destination URL.
+   - Respond with a message containing the shortened URL.
+
+10. Define a route to handle the GET request to "/:shortUrl":
+   - Extract the short URL parameter from the request.
+   - Find the corresponding URL document in the database using the short URL.
+   - If the URL is found, redirect the user to the destination URL.
+   - If the URL is not found, respond with a 404 status and a message.
+
+11. Start the Express app and listen on the specified port (3000).
